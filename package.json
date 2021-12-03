@@ -8,9 +8,6 @@
     "url": ""
   },
   "homepage": "",
-  "bugs": {
-    "url": ""
-  },
   "scripts": {
     "prestart": "npm run drop-sqlite-db || true",
     "start": "npm run nodemon",
@@ -60,5 +57,10 @@
     "nodemon": "^1.17.3",
     "shx": "^0.2.2",
     "supertest": "^3.0.0"
-  }
+  },
+  "main": "main.js",
+  "directories": {
+    "test": "test"
+  },
+  "description": ""
 }
