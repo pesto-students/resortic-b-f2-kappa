@@ -4,7 +4,7 @@ const app = Router();
 
 const userRouter = require("./user/user-router");
 const resortRouter = require("./resort/resort-router");
-const adminRouter = require("./admin/admin-router");
+const adminRouter = require("./admin-s/admin-router");
 
 app.use("/user", userRouter);
 
