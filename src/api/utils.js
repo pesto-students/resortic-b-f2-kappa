@@ -1,9 +1,9 @@
 var crypto = require("crypto");
 
-const createSHA1 = (sVal="") => {
-  var shasum = crypto.createHash('sha1');
+const createSHA1 = (sVal = "") => {
+  var shasum = crypto.createHash("sha1");
   shasum.update(sVal);
-  return shasum.digest('hex');
+  return shasum.digest("hex");
 };
 
 const validateEmail = (email = "Sankgmail.com") => {
@@ -20,6 +20,11 @@ const validatMobile = (mobile = "0000000000") => {
   return regex.test(mobile);
 };
 
+const validateStatus = (status = "") => {
+  var acceptStatus = ["Reserved", "Booked", "Cancelled", "Completed"];
+  return acceptStatus.includes(status);
+};
+
 const getCurrentTimestamp = () => {
   return Math.floor(new Date() / 1000);
 };
@@ -28,5 +33,6 @@ module.exports = {
   createSHA1,
   validateEmail,
   validatMobile,
+  validateStatus,
   getCurrentTimestamp,
 };
