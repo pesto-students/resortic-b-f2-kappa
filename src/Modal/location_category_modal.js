@@ -2,7 +2,7 @@ const { Sequelize } = require("sequelize");
 
 const sequelize = require("../../config/database");
 
-const CategoryTable = sequelize.define("categorytable", {
+const ResortCategoryTable = sequelize.define("resortcategorytable", {
   id: {
     type: Sequelize.UUID,
     defaultValue: Sequelize.UUIDV4,
@@ -13,15 +13,6 @@ const CategoryTable = sequelize.define("categorytable", {
     type: Sequelize.STRING,
     allowNull: false,
   },
-  categoryDescription: {
-    type: Sequelize.STRING,
-    allowNull: false,
-  },
-  is_deleted: {
-    type: Sequelize.BOOLEAN,
-    allowNull: false,
-    defaultValue: false,
-  },
 });
 
-module.exports = CategoryTable;
+module.exports = ResortCategoryTable;

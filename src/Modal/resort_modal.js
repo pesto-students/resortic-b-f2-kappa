@@ -4,10 +4,12 @@ const sequelize = require("../../config/database");
 
 const ResortTable = sequelize.define("resorttable", {
   id: {
-    type: Sequelize.STRING,
+    type: Sequelize.UUID,
+    defaultValue: Sequelize.UUIDV4,
     allowNull: false,
     primaryKey: true,
   },
+
   resortName: {
     type: Sequelize.STRING,
     allowNull: false,
@@ -44,14 +46,6 @@ const ResortTable = sequelize.define("resorttable", {
     type: Sequelize.STRING,
     allowNull: false,
   },
-  state: {
-    type: Sequelize.STRING,
-    allowNull: false,
-  },
-  country: {
-    type: Sequelize.STRING,
-    allowNull: false,
-  },
   pin: {
     type: Sequelize.STRING,
     allowNull: false,
@@ -73,10 +67,6 @@ const ResortTable = sequelize.define("resorttable", {
     allowNull: true,
   },
   majorAminities: {
-    type: Sequelize.STRING,
-    allowNull: true,
-  },
-  amnitites: {
     type: Sequelize.STRING,
     allowNull: true,
   },
