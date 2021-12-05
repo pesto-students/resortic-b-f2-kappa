@@ -2,6 +2,7 @@ const UserDAL = require("./user-dal");
 
 class UserService {
   _register = async (req, res) => {
+    console.log("ser", req.body);
     try {
       let response = await UserDAL.registerUser(req, res);
       res.status(200).json({ success: true, data: response });

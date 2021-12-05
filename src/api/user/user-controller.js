@@ -9,7 +9,12 @@ const { validateEmail } = require("../utils");
 
 class UserController {
   register = async (req, res) => {
+    console.log("req", req.body);
     try {
+      if (req.body.email) {
+        if (!validateEmail(req.body.email))
+          throw new Error("EMail is not valid !");
+      }
       return await UserService._register(req, res);
     } catch (error) {
       console.log("error", error);
@@ -20,7 +25,9 @@ class UserController {
   getUser = async (req, res) => {
     try {
       return await UserService._getUser(req, res);
-    } catch (error) {}
+    } catch (error) {
+      res.status(200).json({ success: false, msg: error });
+    }
   };
 
   updateUser = async (req, res) => {
@@ -36,7 +43,9 @@ class UserController {
   deleteUser = async (req, res) => {
     try {
       return await UserService._deleteUser(req, res);
-    } catch (error) {}
+    } catch (error) {
+      res.status(200).json({ success: false, msg: error });
+    }
   };
 }
 

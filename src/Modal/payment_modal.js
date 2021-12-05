@@ -4,12 +4,11 @@ const sequelize = require("../../config/database");
 
 const PaymentTable = sequelize.define("paymenttable", {
   id: {
-    type: Sequelize.UUID,
-    defaultValue: Sequelize.UUIDV4,
+    type: Sequelize.STRING,
     allowNull: false,
     primaryKey: true,
   },
-  transition_ID: {
+  transitionID: {
     type: Sequelize.STRING,
     allowNull: false,
   },
@@ -21,15 +20,15 @@ const PaymentTable = sequelize.define("paymenttable", {
     type: Sequelize.STRING,
     allowNull: false,
   },
-  actual_amount: {
+  actualAmount: {
     type: Sequelize.FLOAT,
     allowNull: false,
   },
-  payment_date: {
+  paymentDate: {
     type: Sequelize.DATE,
     allowNull: false,
   },
-  payment_status: {
+  paymentStatus: {
     type: Sequelize.BOOLEAN,
     allowNull: false,
   },
@@ -38,16 +37,6 @@ const PaymentTable = sequelize.define("paymenttable", {
     allowNull: false,
     defaultValue: false,
   },
-  createdAt:{
-    type: Sequelize.STRING,
-    defaultValue: Date.now(),
-    allowNull: false
-  },
-  updatedAt:{
-    type: Sequelize.STRING,
-    defaultValue: Date.now(),
-    allowNull: false
-  }
-},{timestamp: false});
+});
 
 module.exports = PaymentTable;

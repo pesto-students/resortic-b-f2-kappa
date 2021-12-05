@@ -4,16 +4,15 @@ const sequelize = require("../../config/database");
 
 const CategoryTable = sequelize.define("categorytable", {
   id: {
-    type: Sequelize.UUID,
-    defaultValue: Sequelize.UUIDV4,
+    type: Sequelize.STRING,
     allowNull: false,
     primaryKey: true,
   },
-  category_name: {
+  categoryName: {
     type: Sequelize.STRING,
     allowNull: false,
   },
-  category_description: {
+  categoryDescription: {
     type: Sequelize.STRING,
     allowNull: false,
   },
@@ -22,16 +21,6 @@ const CategoryTable = sequelize.define("categorytable", {
     allowNull: false,
     defaultValue: false,
   },
-  createdAt:{
-    type: Sequelize.STRING,
-    defaultValue: Date.now(),
-    allowNull: false
-  },
-  updatedAt:{
-    type: Sequelize.STRING,
-    defaultValue: Date.now(),
-    allowNull: false
-  }
-},{timestamp: false});
+});
 
 module.exports = CategoryTable;

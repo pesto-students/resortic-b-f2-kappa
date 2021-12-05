@@ -4,20 +4,19 @@ const sequelize = require("../../config/database");
 
 const BookingTable = sequelize.define("bookingtable", {
   id: {
-    type: Sequelize.UUID,
-    defaultValue: Sequelize.UUIDV4,
+    type: Sequelize.STRING,
     allowNull: false,
     primaryKey: true,
   },
-  userId_proof: {
+  userIdProof: {
     type: Sequelize.STRING,
     allowNull: false,
   },
-  check_in: {
+  checkIn: {
     type: Sequelize.DATEONLY,
     allowNull: false,
   },
-  check_out: {
+  checkOut: {
     type: Sequelize.DATEONLY,
     allowNull: false,
   },
@@ -25,11 +24,11 @@ const BookingTable = sequelize.define("bookingtable", {
     type: Sequelize.STRING,
     allowNull: false,
   },
-  is_check_in: {
+  isCheckIn: {
     type: Sequelize.BOOLEAN,
     allowNull: true,
   },
-  is_check_out: {
+  isCheckOut: {
     type: Sequelize.BOOLEAN,
     allowNull: true,
   },
@@ -38,16 +37,6 @@ const BookingTable = sequelize.define("bookingtable", {
     allowNull: false,
     defaultValue: false,
   },
-  createdAt:{
-    type: Sequelize.STRING,
-    defaultValue: Date.now(),
-    allowNull: false
-  },
-  updatedAt:{
-    type: Sequelize.STRING,
-    defaultValue: Date.now(),
-    allowNull: false
-  }
-},{timestamp: false});
+});
 
 module.exports = BookingTable;

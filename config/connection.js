@@ -1,7 +1,6 @@
 const development = {
   database: "resortic_schema",
   username: "root",
-  password: "root",
   host: "localhost",
   // dialect: "sqlite" || "mysql" || "postgres",
   dialect: "mysql",
@@ -10,7 +9,6 @@ const development = {
 const testing = {
   database: "resortic_schema",
   username: "root",
-  password: "root",
   host: "localhost",
   // dialect: "sqlite" || "mysql" || "postgres",
   dialect: "mysql",

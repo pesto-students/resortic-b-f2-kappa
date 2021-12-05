@@ -4,8 +4,7 @@ const sequelize = require("../../config/database");
 
 const ReviewTable = sequelize.define("reviewtable", {
   id: {
-    type: Sequelize.UUID,
-    defaultValue: Sequelize.UUIDV4,
+    type: Sequelize.STRING,
     allowNull: false,
     primaryKey: true,
   },
@@ -22,16 +21,6 @@ const ReviewTable = sequelize.define("reviewtable", {
     allowNull: false,
     defaultValue: false,
   },
-  createdAt:{
-    type: Sequelize.STRING,
-    defaultValue: Date.now(),
-    allowNull: false
-  },
-  updatedAt:{
-    type: Sequelize.STRING,
-    defaultValue: Date.now(),
-    allowNull: false
-  }
-},{timestamp: false});
+});
 
 module.exports = ReviewTable;

@@ -1,20 +1,19 @@
+
 const { Sequelize } = require("sequelize");
 
 const sequelize = require("../../config/database");
 
 const ResortTable = sequelize.define("resorttable", {
   id: {
-    type: Sequelize.UUID,
-    defaultValue: Sequelize.UUIDV4,
+    type: Sequelize.STRING,
     allowNull: false,
     primaryKey: true,
   },
-
-  resort_name: {
+  resortName: {
     type: Sequelize.STRING,
     allowNull: false,
   },
-  resort_email: {
+  resortEmail: {
     type: Sequelize.STRING,
     allowNull: false,
   },
@@ -22,11 +21,11 @@ const ResortTable = sequelize.define("resorttable", {
     type: Sequelize.STRING,
     allowNull: false,
   },
-  extra_content: {
+  extraContent: {
     type: Sequelize.STRING,
     allowNull: false,
   },
-  contact_number: {
+  contactNumber: {
     type: Sequelize.STRING,
     allowNull: false,
   },
@@ -35,6 +34,14 @@ const ResortTable = sequelize.define("resorttable", {
     allowNull: false,
   },
   city: {
+    type: Sequelize.STRING,
+    allowNull: false,
+  },
+  state: {
+    type: Sequelize.STRING,
+    allowNull: false,
+  },
+  country: {
     type: Sequelize.STRING,
     allowNull: false,
   },
@@ -58,7 +65,7 @@ const ResortTable = sequelize.define("resorttable", {
     type: Sequelize.STRING,
     allowNull: false,
   },
-  starting_price: {
+  startingPrice: {
     type: Sequelize.STRING,
     allowNull: false,
   },
@@ -66,7 +73,11 @@ const ResortTable = sequelize.define("resorttable", {
     type: Sequelize.STRING,
     allowNull: true,
   },
-  major_aminities: {
+  majorAminities: {
+    type: Sequelize.STRING,
+    allowNull: true,
+  },
+  amnitites: {
     type: Sequelize.STRING,
     allowNull: true,
   },
@@ -75,16 +86,6 @@ const ResortTable = sequelize.define("resorttable", {
     allowNull: false,
     defaultValue: false,
   },
-  createdAt:{
-    type: Sequelize.STRING,
-    defaultValue: Date.now(),
-    allowNull: false
-  },
-  updatedAt:{
-    type: Sequelize.STRING,
-    defaultValue: Date.now(),
-    allowNull: false
-  }
-},{timestamp: false});
+});
 
 module.exports = ResortTable;
