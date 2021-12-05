@@ -40,7 +40,7 @@ const BookingTable = sequelize.define("bookingtable", {
     allowNull: false,
   },
   status: {
-    type: Sequelize.STRING,
+    type: Sequelize.ENUM("Reserved", "Booked", "Cancelled", "Completed"),
     allowNull: false,
   },
   is_checked_in: {

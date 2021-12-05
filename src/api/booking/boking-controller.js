@@ -1,19 +1,19 @@
 const BookingService = require("./booking-service");
-const { validateEmail, validatMobile, validateStatus} = require("../utils");
+const Utils = require("../utils");
 
 class BookingController {
   newBooking = async (req, res) => {
     try {
       if (req.body.email) {
-        if (!validateEmail(req.body.email))
+        if (!Utils.validateEmail(req.body.email))
           throw new Error("EMail is not valid !");
       }
       if (req.body.mobile) {
-        if (!validatMobile(req.body.mobile))
+        if (!Utils.validatMobile(req.body.mobile))
           throw new Error("Invalid mobile number !");
       }
       if (req.body.status) {
-        if (!validateStatus(req.body.status))
+        if (!Utils.validateStatus(req.body.status))
           throw new Error("Invalid Booking status !");
       }
 
@@ -53,15 +53,15 @@ class BookingController {
   updateBooking = async (req, res) => {
     try {
       if (req.body.email) {
-        if (!validateEmail(req.body.email))
+        if (!Utils.validateEmail(req.body.email))
           throw new Error("EMail is not valid !");
       }
       if (req.body.mobile) {
-        if (!validatMobile(req.body.mobile))
+        if (!Utils.validatMobile(req.body.mobile))
           throw new Error("Invalid mobile number !");
       }
       if (req.body.status) {
-        if (!validateStatus(req.body.status))
+        if (!Utils.validateStatus(req.body.status))
           throw new Error("Invalid Booking status !");
       }
 

@@ -8,7 +8,7 @@ class BookingDAL {
   createBooking = async (req, res) => {
     return await Booking.create({
       ...req.body,
-      sha_id: createSHA1(req.body.id),
+      sha_id: "BOK-"+createSHA1(req.body.id),
     })
       .then((data) => {
         return { msg: "Booking Successful.", data: data };
