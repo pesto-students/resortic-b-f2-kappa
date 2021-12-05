@@ -8,6 +8,7 @@ const { validateEmail } = require("../utils");
 
 class UserController {
   register = async (req, res) => {
+    console.log("req", req.body);
     try {
       if (req.body.email) {
         if (!validateEmail(req.body.email))
@@ -24,7 +25,9 @@ class UserController {
   getUser = async (req, res) => {
     try {
       return await UserService._getUser(req, res);
-    } catch (error) {}
+    } catch (error) {
+      res.status(200).json({ success: false, msg: error });
+    }
   };
 
   updateUser = async (req, res) => {
@@ -34,13 +37,17 @@ class UserController {
           throw new Error("EMail is not valid !");
       }
       return await UserService._updateUser(req, res);
-    } catch (error) {}
+    } catch (error) {
+      res.status(200).json({ success: false, msg: error });
+    }
   };
 
   deleteUser = async (req, res) => {
     try {
       return await UserService._deleteUser(req, res);
-    } catch (error) {}
+    } catch (error) {
+      res.status(200).json({ success: false, msg: error });
+    }
   };
 }
 

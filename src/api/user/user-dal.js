@@ -1,14 +1,11 @@
-// const User = require("../../models/User");
 const UserTable = require("../../Modal/user_modal");
-const { getCurrentTimestamp } = require("../utils");
+const { getCurrentTimestamp, createSHA1 } = require("../utils");
 
 class UserDAL {
   registerUser = async (req, res) => {
     const { body } = req;
-    body.is_deleted = false;
-    body.createdAt = getCurrentTimestamp();
-    body.updatedAt = getCurrentTimestamp();
-
+    body.id = "USR-" + createSHA1("USER-" + body.mobile);
+    console.log("bosy", body);
     return await UserTable.create(body)
       .then((data) => {
         return { msg: "User registered successfully.", data: data };

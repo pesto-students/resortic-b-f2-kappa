@@ -1,12 +1,9 @@
 const ReviewTable = require("../../Modal/review_modal");
-const { getCurrentTimestamp } = require("../utils");
-
+const { getCurrentTimestamp, createSHA1 } = require("../utils");
 class reviewDAL {
   addReview = async (req, res) => {
     const { body } = req;
-    body.createdAt = getCurrentTimestamp();
-    body.updatedAt = getCurrentTimestamp();
-    body.is_deleted = false;
+    body.id = "REV-" + createSHA1(body.feedback);
     return await ReviewTable.create(body)
       .then((data) => {
         console.log("data", data);

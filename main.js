@@ -61,9 +61,11 @@ const CategoryTable = require("./src/Modal/category_modal");
 const BookingTable = require("./src/Modal/booking_modal");
 const AmenitiesTable = require("./src/Modal/amenities_modal");
 const ResortAminitiesTable = require("./src/Modal/resort_aminities_modal");
+const LoginTable = require("./src/Modal/login_modal");
 //Router
 // const userRouter = require("./router/router");
 
+LoginTable.belongsTo(UserTable);
 UserTable.hasMany(ReviewTable);
 ReviewTable.belongsTo(UserTable);
 ResortTable.hasMany(ReviewTable);
