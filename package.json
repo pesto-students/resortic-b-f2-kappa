@@ -8,6 +8,9 @@
     "url": ""
   },
   "homepage": "",
+  "bugs": {
+    "url": ""
+  },
   "scripts": {
     "prestart": "npm run drop-sqlite-db || true",
     "start": "npm run nodemon",
@@ -43,6 +46,7 @@
     "helmet": "^3.12.0",
     "joi": "^17.5.0",
     "jsonwebtoken": "^8.5.1",
+    "jsonwebtoken": "^8.2.1",
     "mysql": "^2.18.1",
     "mysql2": "^2.3.3",
     "sequelize": "^6.0.0",
