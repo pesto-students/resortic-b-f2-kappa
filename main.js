@@ -61,8 +61,7 @@ const CategoryTable = require("./src/Modal/category_modal");
 const BookingTable = require("./src/Modal/booking_modal");
 const AmenitiesTable = require("./src/Modal/amenities_modal");
 const ResortAminitiesTable = require("./src/Modal/resort_aminities_modal");
-//Router
-// const userRouter = require("./router/router");
+
 
 UserTable.hasMany(ReviewTable);
 ReviewTable.belongsTo(UserTable);
@@ -78,12 +77,17 @@ BookingTable.belongsTo(RoomTable);
 // RoomTable.belongsToMany(BookingTable, { through: RoomBookingTable });
 PaymentTable.belongsTo(BookingTable);
 RoomTable.hasMany(BookingTable);
+BookingTable.hasMany(PaymentTable);
+PaymentTable.belongsTo(BookingTable);
 UserTable.hasMany(PaymentTable);
 PaymentTable.belongsTo(UserTable);
 ResortTable.hasMany(RoomTable);
 RoomTable.belongsTo(ResortTable);
 AmenitiesTable.belongsToMany(ResortTable, { through: ResortAminitiesTable });
 ResortTable.belongsToMany(AmenitiesTable, { through: ResortAminitiesTable });
+LocationCategoryTable.hasMany(LocationCityCategoryTable);
+LocationCityCategoryTable.belongsTo(LocationCategoryTable);
+
 
 // app.use(userRouter);
 // sequelize.sync();
