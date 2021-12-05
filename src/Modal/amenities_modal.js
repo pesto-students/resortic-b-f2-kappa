@@ -9,11 +9,11 @@ const AmenitiesTable = sequelize.define("amenitiestable", {
     allowNull: false,
     primaryKey: true,
   },
-  amininitsName: {
+  amininits_name: {
     type: Sequelize.STRING,
     allowNull: false,
   },
-  aminitiesDecription: {
+  aminities_decription: {
     type: Sequelize.STRING,
     allowNull: false,
   },
@@ -26,6 +26,16 @@ const AmenitiesTable = sequelize.define("amenitiestable", {
     allowNull: false,
     defaultValue: false,
   },
-});
+  createdAt:{
+    type: Sequelize.STRING,
+    defaultValue: Date.now(),
+    allowNull: false
+  },
+  updatedAt:{
+    type: Sequelize.STRING,
+    defaultValue: Date.now(),
+    allowNull: false
+  }
+}, {timestamp: false});
 
 module.exports = AmenitiesTable;

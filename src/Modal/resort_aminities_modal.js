@@ -14,6 +14,16 @@ const ResortAminitiesTable = sequelize.define("resortaminitiestable", {
     allowNull: false,
     defaultValue: false,
   },
-});
+  createdAt:{
+    type: Sequelize.STRING,
+    defaultValue: Date.now(),
+    allowNull: false
+  },
+  updatedAt:{
+    type: Sequelize.STRING,
+    defaultValue: Date.now(),
+    allowNull: false
+  }
+},{timestamp: false});
 
 module.exports = ResortAminitiesTable;

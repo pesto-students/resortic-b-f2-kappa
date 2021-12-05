@@ -9,7 +9,7 @@ const PaymentTable = sequelize.define("paymenttable", {
     allowNull: false,
     primaryKey: true,
   },
-  transitionID: {
+  transition_ID: {
     type: Sequelize.STRING,
     allowNull: false,
   },
@@ -21,15 +21,15 @@ const PaymentTable = sequelize.define("paymenttable", {
     type: Sequelize.STRING,
     allowNull: false,
   },
-  actualAmount: {
+  actual_amount: {
     type: Sequelize.FLOAT,
     allowNull: false,
   },
-  paymentDate: {
+  payment_date: {
     type: Sequelize.DATE,
     allowNull: false,
   },
-  paymentStatus: {
+  payment_status: {
     type: Sequelize.BOOLEAN,
     allowNull: false,
   },
@@ -38,6 +38,16 @@ const PaymentTable = sequelize.define("paymenttable", {
     allowNull: false,
     defaultValue: false,
   },
-});
+  createdAt:{
+    type: Sequelize.STRING,
+    defaultValue: Date.now(),
+    allowNull: false
+  },
+  updatedAt:{
+    type: Sequelize.STRING,
+    defaultValue: Date.now(),
+    allowNull: false
+  }
+},{timestamp: false});
 
 module.exports = PaymentTable;

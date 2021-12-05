@@ -9,27 +9,27 @@ const RoomTable = sequelize.define("roomtable", {
     allowNull: false,
     primaryKey: true,
   },
-  roomName: {
+  room_name: {
     type: Sequelize.STRING,
     allowNull: false,
   },
-  roomPrice: {
+  room_price: {
     type: Sequelize.FLOAT,
     allowNull: false,
   },
-  roomArea: {
+  room_area: {
     type: Sequelize.FLOAT,
     allowNull: false,
   },
-  roomDescrption: {
+  room_descrption: {
     type: Sequelize.STRING,
     allowNull: false,
   },
-  extraContent: {
+  extra_content: {
     type: Sequelize.STRING,
     allowNull: true,
   },
-  maxOccupancy: {
+  max_occupancy: {
     type: Sequelize.STRING,
     allowNull: false,
   },
@@ -46,6 +46,16 @@ const RoomTable = sequelize.define("roomtable", {
     allowNull: false,
     defaultValue: false,
   },
-});
+  createdAt:{
+    type: Sequelize.STRING,
+    defaultValue: Date.now(),
+    allowNull: false
+  },
+  updatedAt:{
+    type: Sequelize.STRING,
+    defaultValue: Date.now(),
+    allowNull: false
+  }
+},{timestamp: false});
 
 module.exports = RoomTable;

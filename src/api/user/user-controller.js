@@ -1,6 +1,7 @@
 const User = require("../../models/User");
 const authService = require("../../services/auth.service");
 const bcryptService = require("../../services/bcrypt.service");
+const userValidationSchema = require("../../validation/userValidationSchema");
 
 const UserService = require("./user-service");
 const { validateEmail } = require("../utils");
@@ -9,11 +10,6 @@ const { validateEmail } = require("../utils");
 class UserController {
   register = async (req, res) => {
     try {
-      if (req.body.email) {
-        if (!validateEmail(req.body.email))
-          throw new Error("EMail is not valid !");
-      }
-
       return await UserService._register(req, res);
     } catch (error) {
       console.log("error", error);
@@ -29,10 +25,10 @@ class UserController {
 
   updateUser = async (req, res) => {
     try {
-      if (req.body.email) {
-        if (!validateEmail(req.body.email))
-          throw new Error("EMail is not valid !");
-      }
+      userValidationSchema
+        .validateAsync(req.body)
+        .then()
+        .catch((error) => {});
       return await UserService._updateUser(req, res);
     } catch (error) {}
   };

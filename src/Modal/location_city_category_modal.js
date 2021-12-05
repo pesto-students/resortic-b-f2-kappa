@@ -15,7 +15,17 @@ const LocationCityCategoryTable = sequelize.define(
       type: Sequelize.STRING,
       allowNull: false,
     },
+    createdAt:{
+    type: Sequelize.STRING,
+    defaultValue: Date.now(),
+    allowNull: false
+  },
+  updatedAt:{
+    type: Sequelize.STRING,
+    defaultValue: Date.now(),
+    allowNull: false
   }
+  },{timestamp: false}
 );
 
 module.exports = LocationCityCategoryTable;

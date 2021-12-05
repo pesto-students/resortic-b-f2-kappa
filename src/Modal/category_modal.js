@@ -9,11 +9,11 @@ const CategoryTable = sequelize.define("categorytable", {
     allowNull: false,
     primaryKey: true,
   },
-  categoryName: {
+  category_name: {
     type: Sequelize.STRING,
     allowNull: false,
   },
-  categoryDescription: {
+  category_description: {
     type: Sequelize.STRING,
     allowNull: false,
   },
@@ -22,6 +22,16 @@ const CategoryTable = sequelize.define("categorytable", {
     allowNull: false,
     defaultValue: false,
   },
-});
+  createdAt:{
+    type: Sequelize.STRING,
+    defaultValue: Date.now(),
+    allowNull: false
+  },
+  updatedAt:{
+    type: Sequelize.STRING,
+    defaultValue: Date.now(),
+    allowNull: false
+  }
+},{timestamp: false});
 
 module.exports = CategoryTable;

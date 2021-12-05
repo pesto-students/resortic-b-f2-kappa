@@ -9,11 +9,11 @@ const UserTable = sequelize.define("usertable", {
     allowNull: false,
     primaryKey: true,
   },
-  firstName: {
+  first_name: {
     type: Sequelize.STRING,
     allowNull: true,
   },
-  lastName: {
+  last_name: {
     type: Sequelize.STRING,
     allowNull: true,
   },
@@ -39,7 +39,17 @@ const UserTable = sequelize.define("usertable", {
     allowNull: false,
     defaultValue: false,
   },
-});
+  createdAt:{
+    type: Sequelize.STRING,
+    defaultValue: Date.now(),
+    allowNull: false
+  },
+  updatedAt:{
+    type: Sequelize.STRING,
+    defaultValue: Date.now(),
+    allowNull: false
+  }
+},{timestamp: false});
 
 module.exports = UserTable;
 
