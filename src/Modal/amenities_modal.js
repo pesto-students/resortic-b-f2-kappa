@@ -28,4 +28,3 @@ const AmenitiesTable = sequelize.define("amenitiestable", {
 });
 
 module.exports = AmenitiesTable;
-

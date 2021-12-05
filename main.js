@@ -62,6 +62,7 @@ const BookingTable = require("./src/Modal/booking_modal");
 const AmenitiesTable = require("./src/Modal/amenities_modal");
 const ResortAminitiesTable = require("./src/Modal/resort_aminities_modal");
 
+
 UserTable.hasMany(ReviewTable);
 ReviewTable.belongsTo(UserTable);
 ResortTable.hasMany(ReviewTable);
@@ -70,6 +71,12 @@ ResortTable.hasMany(BookingTable);
 BookingTable.belongsTo(ResortTable);
 UserTable.hasMany(BookingTable);
 BookingTable.belongsTo(UserTable);
+RoomTable.hasMany(BookingTable);
+BookingTable.belongsTo(RoomTable);
+// BookingTable.belongsToMany(RoomTable, { through: RoomBookingTable });
+// RoomTable.belongsToMany(BookingTable, { through: RoomBookingTable });
+PaymentTable.belongsTo(BookingTable);
+RoomTable.hasMany(BookingTable);
 BookingTable.hasMany(PaymentTable);
 PaymentTable.belongsTo(BookingTable);
 UserTable.hasMany(PaymentTable);
