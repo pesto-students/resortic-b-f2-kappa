@@ -1,4 +1,5 @@
 var crypto = require("crypto");
+const dayjs = require("dayjs");
 
 class Utils {
   createSHA1 = (sVal = "") => {
@@ -27,7 +28,7 @@ class Utils {
   };
 
   getCurrentTimestamp = () => {
-    return Math.floor(new Date() / 1000);
+    return dayjs(new Date()).unix();
   };
 }
 

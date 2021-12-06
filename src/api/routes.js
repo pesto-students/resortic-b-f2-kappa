@@ -13,8 +13,10 @@ const paymentRouter = require("./payment/payment-router");
 const bookingRouter = require("./booking/booking-router");
 const resortRouter = require("./resort/resort-router");
 const adminRouter = require("./admin-s/admin-router");
+const guestTokenRouter = require("./guesttoken/guesttoken-router");
 
-// app.use(verify);
+app.use("/guest", guestTokenRouter);
+app.use(verify);
 app.use("/user", userRouter);
 app.use("/review", reviewRouter);
 app.use("/login", loginRouter);
