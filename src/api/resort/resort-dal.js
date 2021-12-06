@@ -11,7 +11,7 @@ class ResortDAL {
     return ResortTable.findByPk(req.params.id, {
       include: {
         model: ReviewTable,
-        include: { model: UserTable, attributes: ["firstName"] },
+        include: { model: UserTable, attributes: ["first_name"] },
       },
     })
       .then((resortData) => {
@@ -61,7 +61,7 @@ class ResortDAL {
   fetchResortByCity = (req, res) => {
     const city = req.params.city;
     return ResortTable.findAll({
-      attributes: ["resortName", "city", "startingPrice", "majorAminities"],
+      attributes: ["resort_name", "city", "starting_price", "major_aminities"],
       where: {
         city: city,
       },
