@@ -16,7 +16,7 @@ const BookingTable = sequelize.define("bookingtable", {
   user_id_proof: {
     type: Sequelize.STRING,
     allowNull: false,
-    unique: true,
+    unique: true
   },
   mobile: {
     type: Sequelize.BIGINT(10),
@@ -46,18 +46,19 @@ const BookingTable = sequelize.define("bookingtable", {
   is_checked_in: {
     type: Sequelize.BOOLEAN,
     allowNull: true,
-    defaultValue: false,
+    defaultValue: false
   },
   is_checked_out: {
     type: Sequelize.BOOLEAN,
-    allowNull: true,
-    defaultValue: false,
+    allowNull: true
+    defaultValue: false
   },
-  is_deleted: {
+  is_deleted:{
     type: Sequelize.BOOLEAN,
     allowNull: false,
-    defaultValue: false,
-  },
+    defaultValue: false
+  }
+
 });
 
 module.exports = BookingTable;

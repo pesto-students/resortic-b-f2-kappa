@@ -1,6 +1,7 @@
 const resortDal = require("./resort-dal");
 
 class resortService {
+
   _displaySingleResortService = async (req, res) => {
     try {
       const data = await resortDal.displaySingleResort(req, res);

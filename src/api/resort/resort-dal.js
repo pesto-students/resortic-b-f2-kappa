@@ -23,7 +23,6 @@ class ResortDAL {
   };
 
   insertResortDetails = (req, res) => {
-    console.log(req.body);
     return ResortTable.create(
       {
         id: "RST-" + utils.createSHA1("RESORT" + req.body.resort_name),
@@ -33,7 +32,6 @@ class ResortDAL {
       { include: AminitiesTable }
     )
       .then((data) => {
-        console.log(data);
         return data;
       })
       .catch((err) => {

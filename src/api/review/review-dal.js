@@ -4,6 +4,8 @@ class reviewDAL {
   addReview = async (req, res) => {
     const { body } = req;
     body.id = "REV-" + createSHA1(body.feedback);
+    body.createdAt = getCurrentTimestamp();
+    body.updatedAt = getCurrentTimestamp();
     return await ReviewTable.create(body)
       .then((data) => {
         console.log("data", data);

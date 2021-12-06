@@ -41,6 +41,7 @@
     "body-parser": "^1.18.2",
     "core-js": "^2.6.9",
     "cors": "^2.8.4",
+    "dayjs": "^1.10.7",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "express-routes-mapper": "^1.0.2",
@@ -49,7 +50,6 @@
     "jsonwebtoken": "^8.5.1",
     "mysql": "^2.18.1",
     "mysql2": "^2.3.3",
-    "nodemailer": "^6.7.2",
     "sequelize": "^6.0.0"
   },
   "devDependencies": {

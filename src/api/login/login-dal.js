@@ -2,7 +2,7 @@ const LoginTable = require("../../Modal/login_modal");
 const authService = require("../../services/auth.service");
 const UserTable = require("../../Modal/user_modal");
 const { createJWT } = authService();
-const { createSHA1 } = require("../utils");
+const { createSHA1, getCurrentTimestamp } = require("../utils");
 
 const getUserDetail = async ({ mobile }) => {
   return await UserTable.findOne({
@@ -21,6 +21,8 @@ class LoginDAL {
     if (userData === null) return { msg: "User not found" };
     body.issueTime = Math.floor(Date.now() / 1000);
     body.expiryTime = Math.floor(Date.now() / 1000) + 60 * 60;
+    body.createdAt = getCurrentTimestamp();
+    body.updatedAt = getCurrentTimestamp();
     body.usertableId = userData.id;
     body.id = "LOG-" + createSHA1("LOGIN" + body.mobile);
 

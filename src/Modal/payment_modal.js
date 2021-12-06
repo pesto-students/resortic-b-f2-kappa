@@ -16,7 +16,7 @@ const PaymentTable = sequelize.define("paymenttable", {
     type: Sequelize.FLOAT,
     allowNull: false,
   },
-  discout: {
+  discount: {
     type: Sequelize.STRING,
     allowNull: false,
   },
