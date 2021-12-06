@@ -8,16 +8,16 @@ const UserTable = sequelize.define("usertable", {
     allowNull: false,
     primaryKey: true,
   },
-  firstName: {
+  first_name: {
     type: Sequelize.STRING,
     allowNull: true,
   },
-  lastName: {
+  last_name: {
     type: Sequelize.STRING,
     allowNull: true,
   },
   mobile: {
-    type: Sequelize.BIGINT(10),
+    type: Sequelize.STRING,
     allowNull: false,
     unique: true,
   },

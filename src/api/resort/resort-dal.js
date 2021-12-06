@@ -4,6 +4,7 @@ const ReviewTable = require("../../Modal/review_modal");
 const AminitiesTable = require("../../Modal/amenities_modal");
 const LocationCategoryTable = require("../../Modal/location_category_modal");
 const LocationCityCategoryTable = require("../../Modal/location_city_category_modal");
+const utils = require("../utils");
 
 class ResortDAL {
   displaySingleResort = (req, res) => {
@@ -17,13 +18,14 @@ class ResortDAL {
         return resortData;
       })
       .catch((err) => {
-        console.log(err);
+        return err;
       });
   };
 
   insertResortDetails = (req, res) => {
     return ResortTable.create(
       {
+        id: "RST-" + utils.createSHA1("RESORT" + req.body.resort_name),
         ...req.body,
         amenitiestables: req.body.aminities,
       },
@@ -33,7 +35,7 @@ class ResortDAL {
         return data;
       })
       .catch((err) => {
-        console.log(err);
+        return err;
       });
   };
 
@@ -52,7 +54,7 @@ class ResortDAL {
         return updateData;
       })
       .catch((err) => {
-        console.log(err);
+        return err;
       });
   };
 
@@ -69,7 +71,7 @@ class ResortDAL {
         return resortData;
       })
       .catch((err) => {
-        console.log(err);
+        return err;
       });
   };
 
@@ -83,7 +85,7 @@ class ResortDAL {
         return data;
       })
       .catch((err) => {
-        console.log(err);
+        return err;
       });
   };
 }

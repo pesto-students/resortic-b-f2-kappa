@@ -8,11 +8,11 @@ const ResortTable = sequelize.define("resorttable", {
     allowNull: false,
     primaryKey: true,
   },
-  resortName: {
+  resort_name: {
     type: Sequelize.STRING,
     allowNull: false,
   },
-  resortEmail: {
+  resort_email: {
     type: Sequelize.STRING,
     allowNull: false,
   },
@@ -20,11 +20,11 @@ const ResortTable = sequelize.define("resorttable", {
     type: Sequelize.STRING,
     allowNull: false,
   },
-  extraContent: {
+  extra_content: {
     type: Sequelize.STRING,
     allowNull: false,
   },
-  contactNumber: {
+  contact_number: {
     type: Sequelize.STRING,
     allowNull: false,
   },
@@ -64,7 +64,7 @@ const ResortTable = sequelize.define("resorttable", {
     type: Sequelize.STRING,
     allowNull: false,
   },
-  startingPrice: {
+  starting_price: {
     type: Sequelize.STRING,
     allowNull: false,
   },
@@ -72,7 +72,7 @@ const ResortTable = sequelize.define("resorttable", {
     type: Sequelize.STRING,
     allowNull: true,
   },
-  majorAminities: {
+  major_aminities: {
     type: Sequelize.STRING,
     allowNull: true,
   },

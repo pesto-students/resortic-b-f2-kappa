@@ -8,7 +8,7 @@ const PaymentTable = sequelize.define("paymenttable", {
     allowNull: false,
     primaryKey: true,
   },
-  transitionID: {
+  transition_id: {
     type: Sequelize.STRING,
     allowNull: false,
   },
@@ -20,15 +20,15 @@ const PaymentTable = sequelize.define("paymenttable", {
     type: Sequelize.STRING,
     allowNull: false,
   },
-  actualAmount: {
+  actual_amount: {
     type: Sequelize.FLOAT,
     allowNull: false,
   },
-  paymentDate: {
+  payment_date: {
     type: Sequelize.DATE,
     allowNull: false,
   },
-  paymentStatus: {
+  payment_status: {
     type: Sequelize.BOOLEAN,
     allowNull: false,
   },

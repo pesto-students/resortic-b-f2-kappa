@@ -4,15 +4,16 @@ const sequelize = require("../../config/database");
 
 const AmenitiesTable = sequelize.define("amenitiestable", {
   id: {
-    type: Sequelize.STRING,
+    type: Sequelize.UUID,
+    defaultValue: Sequelize.UUIDV4,
     allowNull: false,
     primaryKey: true,
   },
-  amininitsName: {
+  amininits_name: {
     type: Sequelize.STRING,
     allowNull: false,
   },
-  aminitiesDecription: {
+  aminities_decription: {
     type: Sequelize.STRING,
     allowNull: false,
   },

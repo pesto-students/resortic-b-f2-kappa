@@ -6,7 +6,7 @@ const UserTable = sequelize.define("logintable", {
   id: {
     type: Sequelize.STRING,
     allowNull: false,
-    unique: true,
+    primaryKey: true,
   },
   mobile: {
     type: Sequelize.BIGINT(10),
@@ -14,15 +14,15 @@ const UserTable = sequelize.define("logintable", {
     unique: true,
     primaryKey: true,
   },
-  issueTime: {
+  issue_time: {
     type: Sequelize.BIGINT(15),
     allowNull: false,
   },
-  expiryTime: {
+  expiry_time: {
     type: Sequelize.BIGINT(15),
     allowNull: false,
   },
-  isLogout: {
+  is_logout: {
     type: BOOLEAN,
     allowNull: false,
     defaultValue: false,

@@ -8,11 +8,11 @@ const CategoryTable = sequelize.define("categorytable", {
     allowNull: false,
     primaryKey: true,
   },
-  categoryName: {
+  category_name: {
     type: Sequelize.STRING,
     allowNull: false,
   },
-  categoryDescription: {
+  category_description: {
     type: Sequelize.STRING,
     allowNull: false,
   },

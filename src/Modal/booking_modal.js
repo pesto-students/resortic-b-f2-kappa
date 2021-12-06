@@ -11,7 +11,7 @@ const BookingTable = sequelize.define("bookingtable", {
   sha_id: {
     type: Sequelize.STRING,
     allowNull: false,
-    unique: true
+    unique: true,
   },
   user_id_proof: {
     type: Sequelize.STRING,
@@ -50,7 +50,7 @@ const BookingTable = sequelize.define("bookingtable", {
   },
   is_checked_out: {
     type: Sequelize.BOOLEAN,
-    allowNull: true,
+    allowNull: true
     defaultValue: false
   },
   is_deleted:{
