@@ -18,7 +18,7 @@ const UserTable = sequelize.define("usertable", {
     allowNull: true,
   },
   mobile: {
-    type: Sequelize.BIGINT(10),
+    type: Sequelize.STRING,
     allowNull: false,
     unique: true,
   },
