@@ -4,6 +4,7 @@ const ReviewTable = require("../../Modal/review_modal");
 const AminitiesTable = require("../../Modal/amenities_modal");
 const LocationCategoryTable = require("../../Modal/location_category_modal");
 const LocationCityCategoryTable = require("../../Modal/location_city_category_modal");
+const utils = require("../utils");
 
 class ResortDAL {
   displaySingleResort = (req, res) => {
@@ -22,14 +23,17 @@ class ResortDAL {
   };
 
   insertResortDetails = (req, res) => {
+    console.log(req.body);
     return ResortTable.create(
       {
+        id: "RST-" + utils.createSHA1("RESORT" + req.body.resort_name),
         ...req.body,
         amenitiestables: req.body.aminities,
       },
       { include: AminitiesTable }
     )
       .then((data) => {
+        console.log(data);
         return data;
       })
       .catch((err) => {

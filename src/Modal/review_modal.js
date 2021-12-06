@@ -4,8 +4,7 @@ const sequelize = require("../../config/database");
 
 const ReviewTable = sequelize.define("reviewtable", {
   id: {
-    type: Sequelize.UUID,
-    defaultValue: Sequelize.UUIDV4,
+    type: Sequelize.STRING,
     allowNull: false,
     primaryKey: true,
   },

@@ -6,8 +6,7 @@ const LocationCityCategoryTable = sequelize.define(
   "locationcitycategorytable",
   {
     id: {
-      type: Sequelize.UUID,
-      defaultValue: Sequelize.UUIDV4,
+      type: Sequelize.STRING,
       allowNull: false,
       primaryKey: true,
     },

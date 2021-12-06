@@ -4,8 +4,7 @@ const sequelize = require("../../config/database");
 
 const ResortTable = sequelize.define("resorttable", {
   id: {
-    type: Sequelize.UUID,
-    defaultValue: Sequelize.UUIDV4,
+    type: Sequelize.STRING,
     allowNull: false,
     primaryKey: true,
   },

@@ -4,8 +4,7 @@ const sequelize = require("../../config/database");
 
 const RoomTable = sequelize.define("roomtable", {
   id: {
-    type: Sequelize.UUID,
-    defaultValue: Sequelize.UUIDV4,
+    type: Sequelize.STRING,
     allowNull: false,
     primaryKey: true,
   },
