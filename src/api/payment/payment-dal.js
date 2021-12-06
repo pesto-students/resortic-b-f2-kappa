@@ -5,10 +5,10 @@ class PaymentDAL {
   addPayment = async (req, res) => {
     const { body } = req;
     console.log("ser", body);
-    body.id = "PAY-" + createSHA1(body.transitionID);
+    body.id = "PAY-" + createSHA1(body.transition_id);
     body.createdAt = getCurrentTimestamp();
     body.updatedAt = getCurrentTimestamp();
-    body.PaymentDate = getCurrentTimestamp();
+    body.payment_date = getCurrentTimestamp();
     console.log("ser", body);
     return await PaymentTable.create(body)
       .then((data) => {
@@ -30,7 +30,7 @@ class PaymentDAL {
       {
         where: {
           id: body.id,
-          transitionID: body.transitionID,
+          transition_id: body.transition_id,
         },
       }
     )

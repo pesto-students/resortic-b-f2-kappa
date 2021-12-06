@@ -9,8 +9,6 @@ class UserValidationSchema {
     email: Joi.string()
       .email({ tlds: { allow: ["com"] } })
       .required(),
-    address: Joi.string().alphanum().min(5),
-    Image: Joi.string().alphanum().min(5),
   });
 
   mobileLoginSchema = Joi.object({

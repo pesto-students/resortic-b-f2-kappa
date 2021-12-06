@@ -29,7 +29,7 @@ const PaymentTable = sequelize.define("paymenttable", {
     allowNull: false,
   },
   payment_status: {
-    type: Sequelize.BOOLEAN,
+    type: Sequelize.ENUM("successfull", "failed", "pending", "refund"),
     allowNull: false,
   },
   is_deleted: {

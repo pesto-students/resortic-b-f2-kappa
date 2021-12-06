@@ -52,6 +52,7 @@ app.use(bodyParser.json());
 const sequelize = require("./config/database");
 
 // Database
+const LoginTable = require("./src/Modal/login_modal");
 const UserTable = require("./src/Modal/user_modal");
 const RoomTable = require("./src/Modal/room_modal");
 const ReviewTable = require("./src/Modal/review_modal");
@@ -66,6 +67,7 @@ const LocationCityCategoryTable = require("./src/Modal/location_city_category_mo
 
 UserTable.hasMany(ReviewTable);
 ReviewTable.belongsTo(UserTable);
+LoginTable.belongsTo(UserTable);
 ResortTable.hasMany(ReviewTable);
 ReviewTable.belongsTo(ResortTable);
 ResortTable.hasMany(BookingTable);
