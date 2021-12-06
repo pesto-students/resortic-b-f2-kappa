@@ -15,7 +15,7 @@ const LocationCityCategoryTable = sequelize.define(
       type: Sequelize.STRING,
       allowNull: false,
     },
-  },
+  }
 );
 
 module.exports = LocationCityCategoryTable;

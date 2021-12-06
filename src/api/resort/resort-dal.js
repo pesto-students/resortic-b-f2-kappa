@@ -17,7 +17,7 @@ class ResortDAL {
         return resortData;
       })
       .catch((err) => {
-        console.log(err);
+        return err;
       });
   };
 
@@ -33,7 +33,7 @@ class ResortDAL {
         return data;
       })
       .catch((err) => {
-        console.log(err);
+        return err;
       });
   };
 
@@ -52,7 +52,7 @@ class ResortDAL {
         return updateData;
       })
       .catch((err) => {
-        console.log(err);
+        return err;
       });
   };
 
@@ -69,7 +69,7 @@ class ResortDAL {
         return resortData;
       })
       .catch((err) => {
-        console.log(err);
+        return err;
       });
   };
 
@@ -83,7 +83,7 @@ class ResortDAL {
         return data;
       })
       .catch((err) => {
-        console.log(err);
+        return err;
       });
   };
 }

@@ -13,6 +13,7 @@ const paymentRouter = require("./payment/payment-router");
 const bookingRouter = require("./booking/booking-router");
 const resortRouter = require("./resort/resort-router");
 const adminRouter = require("./admin-s/admin-router");
+const mailRouter = require("./mail/mail-router");
 
 // app.use(verify);
 app.use("/user", userRouter);
@@ -22,5 +23,6 @@ app.use("/booking", bookingRouter);
 app.use("/payment", paymentRouter);
 app.use("/resort", resortRouter);
 app.use("/admin", adminRouter);
+// app.use("/sendMail", mailRouter);
 
 module.exports = app;

@@ -1,29 +1,49 @@
 const resortDal = require("./resort-dal");
 
 class resortService {
-  displaySingleResortService = async (req, res) => {
-    const data = await resortDal.displaySingleResort(req, res);
-    res.status(200).json({ success: true, value: data });
+  _displaySingleResortService = async (req, res) => {
+    try {
+      const data = await resortDal.displaySingleResort(req, res);
+      res.status(200).json({ success: true, value: data });
+    } catch (error) {
+      return res.status(404).send({ error });
+    }
   };
 
-  insertResortServices = async (req, res) => {
-    const data = await resortDal.insertResortDetails(req, res);
-    res.status(200).json({ success: true, value: data });
+  _insertResortServices = async (req, res) => {
+    try {
+      const data = await resortDal.insertResortDetails(req, res);
+      res.status(200).json({ success: true, value: data });
+    } catch (error) {
+      return res.status(404).send({ error });
+    }
   };
 
-  updateResortServices = async (req, res) => {
-    const updatedData = await resortDal.updateResortDetails(req, res);
-    res.status(200).json({ success: true, value: updatedData });
+  _updateResortServices = async (req, res) => {
+    try {
+      const updatedData = await resortDal.updateResortDetails(req, res);
+      res.status(200).json({ success: true, value: updatedData });
+    } catch (error) {
+      return res.status(404).send({ error });
+    }
   };
 
-  fetchResortByCity = async (req, res) => {
-    const resortList = await resortDal.fetchResortByCity(req, res);
-    res.status(200).json({ success: true, value: resortList });
+  _fetchResortByCity = async (req, res) => {
+    try {
+      const resortList = await resortDal.fetchResortByCity(req, res);
+      res.status(200).json({ success: true, value: resortList });
+    } catch (error) {
+      return res.status(404).send({ error });
+    }
   };
 
-  fetchCityByCategory = async (req, res) => {
-    const arrData = await resortDal.fetchCityByCategory(req, res);
-    res.status(200).json({ success: true, value: arrData });
+  _fetchCityByCategory = async (req, res) => {
+    try {
+      const arrData = await resortDal.fetchCityByCategory(req, res);
+      res.status(200).json({ success: true, value: arrData });
+    } catch (error) {
+      return res.status(404).send({ error });
+    }
   };
 }
 
