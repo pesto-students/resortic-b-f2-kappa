@@ -6,7 +6,7 @@ class BooingService {
       let resp = await BookingDAL.createBooking(req, res);
       res.status(200).json({ success: true, data: resp });
     } catch (error) {
-      return res.status(404).send({ error });
+      return res.status(400).json({ success: false, msg2: error });
     }
   };
 
@@ -15,7 +15,7 @@ class BooingService {
       let resp = await BookingDAL.getUserAllBookings(req, res);
       res.status(200).json({ success: true, data: resp });
     } catch (error) {
-      return res.status(404).send({ error });
+      return res.status(400).json({ success: false, msg: error });
     }
   };
 
@@ -24,7 +24,7 @@ class BooingService {
       let resp = await BookingDAL.getUserUpcomingBookings(req, res);
       res.status(200).json({ success: true, data: resp });
     } catch (error) {
-      return res.status(404).send({ error });
+      return res.status(400).json({ success: false, msg: error });
     }
   };
 
@@ -33,7 +33,7 @@ class BooingService {
       let resp = await BookingDAL.getUserPastBookings(req, res);
       res.status(200).json({ success: true, data: resp });
     } catch (error) {
-      return res.status(404).send({ error });
+      return res.status(400).json({ success: false, msg: error });
     }
   };
 
@@ -42,7 +42,7 @@ class BooingService {
       let resp = await BookingDAL.updateBooking(req, res);
       res.status(200).json({ success: true, data: resp });
     } catch (error) {
-      return res.status(404).send({ error });
+      return res.status(400).json({ success: false, msg: error });
     }
   };
 
@@ -51,7 +51,7 @@ class BooingService {
       let resp = await BookingDAL.deleteBooking(req, res);
       res.status(200).json({ success: true, data: resp });
     } catch (error) {
-      return res.status(404).send({ error });
+      return res.status(400).json({ success: false, msg: error });
     }
   };
 }

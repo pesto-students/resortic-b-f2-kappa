@@ -1,20 +1,24 @@
 const Booking = require("../../Modal/booking_modal");
 const Sequelize = require("sequelize");
-const { createSHA1 } = require("../utils");
+const utils = require("../utils");
 
 const database = require("../../../config/database");
 
 class BookingDAL {
   createBooking = async (req, res) => {
+    var body = req.body;
+    body.id = "BOK-"+ utils.createSHA1("BOOK-" + req.body.mobile);
+    // body.check_in = utils.getCurrentTimestamp(req.body.check_in);
+    // body.check_out = utils.getCurrentTimestamp(req.body.check_out);
+
     return await Booking.create({
-      ...req.body,
-      sha_id: "BOK-"+createSHA1(req.body.id),
+      ...body
     })
       .then((data) => {
         return { msg: "Booking Successful.", data: data };
       })
       .catch((err) => {
-        return { err: err };
+        return res.status(400).json({ success: false, msg1: err });
       });
   };
 
