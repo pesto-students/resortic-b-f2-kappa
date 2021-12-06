@@ -2,41 +2,44 @@ const { Sequelize } = require("sequelize");
 
 const sequelize = require("../../config/database");
 
-const PaymentTable = sequelize.define("paymenttable", {
-  id: {
-    type: Sequelize.STRING,
-    allowNull: false,
-    primaryKey: true,
+const PaymentTable = sequelize.define(
+  "paymenttable",
+  {
+    id: {
+      type: Sequelize.STRING,
+      allowNull: false,
+      primaryKey: true,
+    },
+    transition_id: {
+      type: Sequelize.STRING,
+      allowNull: false,
+    },
+    total: {
+      type: Sequelize.FLOAT,
+      allowNull: false,
+    },
+    discout: {
+      type: Sequelize.STRING,
+      allowNull: false,
+    },
+    actual_amount: {
+      type: Sequelize.FLOAT,
+      allowNull: false,
+    },
+    payment_date: {
+      type: Sequelize.DATE,
+      allowNull: false,
+    },
+    payment_status: {
+      type: Sequelize.BOOLEAN,
+      allowNull: false,
+    },
+    is_deleted: {
+      type: Sequelize.BOOLEAN,
+      allowNull: false,
+      defaultValue: false,
+    },
   },
-  transitionID: {
-    type: Sequelize.STRING,
-    allowNull: false,
-  },
-  Total: {
-    type: Sequelize.FLOAT,
-    allowNull: false,
-  },
-  discout: {
-    type: Sequelize.STRING,
-    allowNull: false,
-  },
-  actualAmount: {
-    type: Sequelize.FLOAT,
-    allowNull: false,
-  },
-  paymentDate: {
-    type: Sequelize.DATE,
-    allowNull: false,
-  },
-  paymentStatus: {
-    type: Sequelize.BOOLEAN,
-    allowNull: false,
-  },
-  is_deleted: {
-    type: Sequelize.BOOLEAN,
-    allowNull: false,
-    defaultValue: false,
-  },
-});
+);
 
 module.exports = PaymentTable;

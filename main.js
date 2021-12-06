@@ -106,7 +106,6 @@ LocationCityCategoryTable.belongsTo(LocationCategoryTable);
 
 // fill routes for express application
 app.use("/v1/api", apiRoutes); //app path
-
 server.listen(config.port, () => {
   console.error(
     `NODE_ENV is set to ${environment}, but only production and development are valid.`,
