@@ -41,4 +41,3 @@ const UserTable = sequelize.define("usertable", {
 });
 
 module.exports = UserTable;
-

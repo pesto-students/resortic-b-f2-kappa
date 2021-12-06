@@ -1,3 +1,4 @@
+
 const bcrypt = require("bcrypt-nodejs");
 
 const bcryptService = () => {
@@ -7,6 +8,7 @@ const bcryptService = () => {
 
     return hash;
   };
+
 
   const comparePassword = (pw, hash) => bcrypt.compareSync(pw, hash);
 
