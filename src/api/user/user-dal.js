@@ -1,8 +1,5 @@
 const UserTable = require("../../Modal/user_modal");
 const { getCurrentTimestamp, createSHA1 } = require("../utils");
-// const User = require("../../models/User");
-const UserTable = require("../../Modal/user_modal");
-const { getCurrentTimestamp } = require("../utils");
 
 class UserDAL {
   registerUser = async (req, res) => {
