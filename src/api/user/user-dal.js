@@ -1,6 +1,7 @@
 const UserTable = require("../../Modal/user_modal");
 const { getCurrentTimestamp, createSHA1 } = require("../utils");
-
+const authService = require("../../services/auth.service");
+const { createJWT } = authService();
 class UserDAL {
   registerUser = async (req, res) => {
     const { body } = req;

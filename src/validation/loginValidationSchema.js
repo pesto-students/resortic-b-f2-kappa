@@ -2,7 +2,7 @@ const Joi = require("joi");
 
 class LoginValidationSchema {
   logoutSchema = Joi.object({
-    usertableId: Joi.string().alphanum().min(3).required(),
+    usertableId: Joi.string().min(3).required(),
   });
 }
 

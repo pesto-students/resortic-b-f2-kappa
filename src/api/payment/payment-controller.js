@@ -6,7 +6,7 @@ const {
 class PaymentController {
   addPayment = async (req, res) => {
     try {
-      const { error, value } = await paymentAddSchema.validateAsync(body);
+      const { error, value } = await paymentAddSchema.validateAsync(req.body);
 
       if (error) {
         throw new Error(error);

@@ -23,19 +23,22 @@ const UserTable = sequelize.define("usertable", {
   },
   email: {
     type: Sequelize.STRING,
-    allowNull: false,
+    allowNull: true,
+    defaultValue: null
   },
   address: {
     type: Sequelize.STRING,
-    allowNull: false,
+    allowNull: true,
+    defaultValue: null,
   },
   image: {
     type: Sequelize.STRING,
-    allowNull: false,
+    allowNull: true,
+     defaultValue: null,
   },
   is_deleted: {
     type: Sequelize.BOOLEAN,
-    allowNull: false,
+    allowNull: true,
     defaultValue: false,
   },
 });

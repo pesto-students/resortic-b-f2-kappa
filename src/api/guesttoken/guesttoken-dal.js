@@ -3,12 +3,12 @@ const { createJWT } = authService();
 
 class GuestTokenDAL {
   guestToken = async (req, res) => {
-    const { guestSystemId } = req.query;
+    const { guestSystemId } = req.params;
     if (!guestSystemId) return { msg: "Guest Id required." };
     try {
       return {
         msg: "Guest Token.",
-        data: createJWT({ guestId: guestSystemId }),
+        token:createJWT({ guestId: guestSystemId }),
       };
     } catch (error) {
       console.log("error", error);
