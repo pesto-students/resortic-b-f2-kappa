@@ -1,7 +1,6 @@
 const resortDal = require("./resort-dal");
 
 class resortService {
-
   _displaySingleResortService = async (req, res) => {
     try {
       const data = await resortDal.displaySingleResort(req, res);
@@ -41,6 +40,15 @@ class resortService {
   _fetchCityByCategory = async (req, res) => {
     try {
       const arrData = await resortDal.fetchCityByCategory(req, res);
+      res.status(200).json({ success: true, value: arrData });
+    } catch (error) {
+      return res.status(404).send({ error });
+    }
+  };
+
+  _fetchTopTenResort = async (req, res) => {
+    try {
+      const arrData = await resortDal.fetchTopTenResort(req, res);
       res.status(200).json({ success: true, value: arrData });
     } catch (error) {
       return res.status(404).send({ error });
