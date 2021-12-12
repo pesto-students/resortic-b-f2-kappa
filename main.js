@@ -52,6 +52,7 @@ app.use(bodyParser.json());
 const sequelize = require("./config/database");
 
 // Database
+const LoginTable = require("./src/Modal/login_modal");
 const UserTable = require("./src/Modal/user_modal");
 const RoomTable = require("./src/Modal/room_modal");
 const ReviewTable = require("./src/Modal/review_modal");
@@ -63,9 +64,11 @@ const AmenitiesTable = require("./src/Modal/amenities_modal");
 const ResortAminitiesTable = require("./src/Modal/resort_aminities_modal");
 const LocationCategoryTable = require("./src/Modal/location_category_modal");
 const LocationCityCategoryTable = require("./src/Modal/location_city_category_modal");
+const ResortRoomTable = require("./src/Modal/resort_room_modal");
 
 UserTable.hasMany(ReviewTable);
 ReviewTable.belongsTo(UserTable);
+LoginTable.belongsTo(UserTable);
 ResortTable.hasMany(ReviewTable);
 ReviewTable.belongsTo(ResortTable);
 ResortTable.hasMany(BookingTable);
@@ -74,20 +77,23 @@ UserTable.hasMany(BookingTable);
 BookingTable.belongsTo(UserTable);
 RoomTable.hasMany(BookingTable);
 BookingTable.belongsTo(RoomTable);
+
 // BookingTable.belongsToMany(RoomTable, { through: RoomBookingTable });
 // RoomTable.belongsToMany(BookingTable, { through: RoomBookingTable });
-PaymentTable.belongsTo(BookingTable);
 RoomTable.hasMany(BookingTable);
 BookingTable.hasMany(PaymentTable);
 PaymentTable.belongsTo(BookingTable);
+// PaymentTable.hasOne(BookingTable);
 UserTable.hasMany(PaymentTable);
 PaymentTable.belongsTo(UserTable);
-ResortTable.hasMany(RoomTable);
-RoomTable.belongsTo(ResortTable);
+// ResortTable.hasMany(RoomTable);
+// RoomTable.belongsTo(ResortTable);
 AmenitiesTable.belongsToMany(ResortTable, { through: ResortAminitiesTable });
 ResortTable.belongsToMany(AmenitiesTable, { through: ResortAminitiesTable });
 LocationCategoryTable.hasMany(LocationCityCategoryTable);
 LocationCityCategoryTable.belongsTo(LocationCategoryTable);
+ResortTable.belongsToMany(RoomTable, { through: ResortRoomTable });
+RoomTable.belongsToMany(ResortTable, { through: ResortRoomTable });
 
 // app.use(userRouter);
 // sequelize.sync();

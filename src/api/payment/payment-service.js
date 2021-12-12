@@ -13,6 +13,15 @@ class PaymentService {
       res.status(200).json({ success: true, data: response });
     } catch (error) {}
   };
+
+  _getOrdeId = async (req, res) => {
+    try {
+      let response = await PaymentDAL.getOrderId(req, res);
+      res.status(200).json({ success: true, data: response });
+    } catch (error) {
+      
+    }
+  };
 }
 
 module.exports = new PaymentService();
