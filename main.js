@@ -80,10 +80,10 @@ BookingTable.belongsTo(RoomTable);
 
 // BookingTable.belongsToMany(RoomTable, { through: RoomBookingTable });
 // RoomTable.belongsToMany(BookingTable, { through: RoomBookingTable });
-PaymentTable.belongsTo(BookingTable);
 RoomTable.hasMany(BookingTable);
 BookingTable.hasMany(PaymentTable);
 PaymentTable.belongsTo(BookingTable);
+// PaymentTable.hasOne(BookingTable);
 UserTable.hasMany(PaymentTable);
 PaymentTable.belongsTo(UserTable);
 // ResortTable.hasMany(RoomTable);

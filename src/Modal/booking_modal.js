@@ -48,6 +48,16 @@ const BookingTable = sequelize.define("bookingtable", {
     allowNull: true,
     defaultValue: false,
   },
+  rooms_count: {
+    type: Sequelize.INTEGER,
+    allowNull: false,
+    defaultValue: 1,
+  },
+  is_deleted: {
+    type: Sequelize.BOOLEAN,
+    allowNull: true,
+    defaultValue: false,
+  }
 });
 
 module.exports = BookingTable;
