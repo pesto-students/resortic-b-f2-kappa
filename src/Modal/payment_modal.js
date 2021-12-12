@@ -8,7 +8,15 @@ const PaymentTable = sequelize.define("paymenttable", {
     allowNull: false,
     primaryKey: true,
   },
-  transition_id: {
+  order_id: {
+    type: Sequelize.STRING,
+    allowNull: false,
+  },
+  payment_id: {
+    type: Sequelize.STRING,
+    allowNull: false,
+  },
+  payment_signature: {
     type: Sequelize.STRING,
     allowNull: false,
   },
@@ -20,7 +28,7 @@ const PaymentTable = sequelize.define("paymenttable", {
     type: Sequelize.STRING,
     allowNull: false,
   },
-  actual_amount: {
+  paid_amount: {
     type: Sequelize.FLOAT,
     allowNull: false,
   },

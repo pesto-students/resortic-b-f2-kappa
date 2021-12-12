@@ -6,7 +6,8 @@ const {
 class PaymentController {
   addPayment = async (req, res) => {
     try {
-      const { error, value } = await paymentAddSchema.validateAsync(req.body);
+      const { body } = req;
+      const { error, value } = await paymentAddSchema.validateAsync(body);
 
       if (error) {
         throw new Error(error);
@@ -32,6 +33,15 @@ class PaymentController {
     } catch (error) {
       console.log("error c", error);
       res.status(400).json({ success: false, msg: error });
+    }
+  };
+
+  getRazorpayOrder = async (req, res) => {
+    try {
+      return await PaymentService._getOrdeId(req, res);
+    } catch (error) {
+      console.log("error", error);
+      res.status(200).json({ success: false, msg: error });
     }
   };
 }
