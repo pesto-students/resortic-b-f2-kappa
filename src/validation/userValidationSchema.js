@@ -2,7 +2,7 @@ const Joi = require("joi");
 
 class UserValidationSchema {
   userSchema = Joi.object({
-    id: Joi.string().alphanum().min(3).required(),
+    id: Joi.string().min(3).required(),
     first_name: Joi.string().alphanum().min(3),
     last_name: Joi.string().alphanum().min(3),
     mobile: Joi.string().pattern(new RegExp("^[6-9]\\d{9}$")).required(),
@@ -22,7 +22,7 @@ class UserValidationSchema {
   });
 
   idSchema = Joi.object({
-    id: Joi.string().alphanum().min(3).required(),
+    id: Joi.string().min(3).required(),
   });
 }
 

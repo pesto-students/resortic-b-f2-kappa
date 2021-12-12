@@ -4,7 +4,7 @@ const ReviewTable = require("../../Modal/review_modal");
 const AminitiesTable = require("../../Modal/amenities_modal");
 const LocationCategoryTable = require("../../Modal/location_category_modal");
 const LocationCityCategoryTable = require("../../Modal/location_city_category_modal");
-const RoomTable = require("../../modal/room_modal");
+const RoomTable = require("../../Modal/room_modal");
 const utils = require("../utils");
 
 class ResortDAL {
@@ -95,7 +95,7 @@ class ResortDAL {
   };
 
   fetchCityByCategory = (req, res) => {
-    // const category = req.body;
+    const category = req.body;
     return LocationCategoryTable.findAll({
       include: { model: LocationCityCategoryTable, attributes: ["city"] },
     })

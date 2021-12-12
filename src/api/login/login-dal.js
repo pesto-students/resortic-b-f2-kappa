@@ -18,9 +18,9 @@ class LoginDAL {
   login = async (req, res) => {
     const { body } = req;
     const userData = await getUserDetail(req.body);
-    if (userData === null) return { msg: "User not found" };
-    body.issueTime = Math.floor(Date.now() / 1000);
-    body.expiryTime = Math.floor(Date.now() / 1000) + 60 * 60;
+    if (userData === null) return { msg: "User not found",code : 404 };
+    // body.issueTime = Math.floor(Date.now() / 1000);
+    // body.expiryTime = Math.floor(Date.now() / 1000) + 60 * 60;
     body.createdAt = getCurrentTimestamp();
     body.updatedAt = getCurrentTimestamp();
     body.usertableId = userData.id;

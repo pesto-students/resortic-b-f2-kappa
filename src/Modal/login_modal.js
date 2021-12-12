@@ -16,11 +16,11 @@ const UserTable = sequelize.define("logintable", {
   },
   issue_time: {
     type: Sequelize.BIGINT(15),
-    allowNull: false,
+    allowNull: true,
   },
   expiry_time: {
     type: Sequelize.BIGINT(15),
-    allowNull: false,
+    allowNull: true,
   },
   is_logout: {
     type: BOOLEAN,

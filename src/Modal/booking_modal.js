@@ -58,6 +58,7 @@ const BookingTable = sequelize.define("bookingtable", {
     allowNull: true,
     defaultValue: false,
   }
+
 });
 
 module.exports = BookingTable;
