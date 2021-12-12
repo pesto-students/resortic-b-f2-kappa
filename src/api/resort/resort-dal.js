@@ -110,7 +110,7 @@ class ResortDAL {
   fetchTopTenResort = (req, res) => {
     return ResortTable.findAll({
       include: { model: ReviewTable, attributes: ["rating"] },
-      attributes: ["resort_name", "city", "starting_price"],
+      attributes: ["id", "resort_name", "city", "starting_price"],
     })
       .then((resorts) => {
         return resorts;
