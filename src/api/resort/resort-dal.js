@@ -18,6 +18,9 @@ class ResortDAL {
         {
           model: RoomTable,
         },
+        {
+          model: AminitiesTable,
+        },
       ],
     })
       .then((resortData) => {
@@ -68,15 +71,22 @@ class ResortDAL {
   };
 
   fetchResortByCity = (req, res) => {
-    const city = req.params.city;
+    const city = req.query.city;
     return ResortTable.findAll({
-      attributes: ["resort_name", "city", "starting_price", "major_aminities"],
+      attributes: [
+        "id",
+        "resort_name",
+        "city",
+        "starting_price",
+        "major_aminities",
+      ],
       where: {
         city: city,
       },
       include: { model: ReviewTable, attributes: ["rating"] },
     })
       .then((resortData) => {
+        console.log(resortData);
         return resortData;
       })
       .catch((err) => {
@@ -85,13 +95,25 @@ class ResortDAL {
   };
 
   fetchCityByCategory = (req, res) => {
-    const category = req.body;
-    return LocationCategoryTable.findOne({
-      where: category,
+    // const category = req.body;
+    return LocationCategoryTable.findAll({
       include: { model: LocationCityCategoryTable, attributes: ["city"] },
     })
       .then((data) => {
         return data;
+      })
+      .catch((err) => {
+        return err;
+      });
+  };
+
+  fetchTopTenResort = (req, res) => {
+    return ResortTable.findAll({
+      include: { model: ReviewTable, attributes: ["rating"] },
+      attributes: ["id", "resort_name", "city", "starting_price"],
+    })
+      .then((resorts) => {
+        return resorts;
       })
       .catch((err) => {
         return err;

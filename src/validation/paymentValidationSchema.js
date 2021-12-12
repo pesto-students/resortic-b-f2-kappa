@@ -11,11 +11,13 @@ class PaymentValidationSchema {
     payment_status: Joi.any().allow("successfull", "failed", "pending", "refund").required(),
     bookingtableId: Joi.string().min(3).required(),
     usertableId: Joi.string().min(3).required(),
+
   });
 
   deletePaymentSchema = Joi.object({
     id: Joi.string().alphanum().min(3).required(),
     payment_id: Joi.string().alphanum().min(3).required(),
+
   });
 }
 

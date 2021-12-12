@@ -40,6 +40,14 @@ class ResortController {
       res.status(400).json({ success: false, msg: error });
     }
   };
+
+  fetchTopTenResort = async (req, res) => {
+    try {
+      return await resortService._fetchTopTenResort(req, res);
+    } catch (error) {
+      res.status(400).json({ success: false, msg: error });
+    }
+  };
 }
 
 module.exports = new ResortController();
