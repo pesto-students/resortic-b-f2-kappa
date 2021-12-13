@@ -32,6 +32,7 @@ class PaymentDAL {
         where: {
           id: body.id,
           payment_id: body.payment_id,
+
         },
       }
     )

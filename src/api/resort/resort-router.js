@@ -13,8 +13,10 @@ resortRouter.put(
   resortController.updateResortDetails
 );
 
-resortRouter.get("/fetchByCity/:city", resortController.fetchResortByCity);
+resortRouter.get("/fetchByCity/", resortController.fetchResortByCity);
 
 resortRouter.get("/fetchCityByCategory", resortController.fetchCityByCategory);
+
+resortRouter.get("/fetchToTenResort", resortController.fetchTopTenResort);
 
 module.exports = resortRouter;

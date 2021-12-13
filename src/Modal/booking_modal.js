@@ -57,7 +57,7 @@ const BookingTable = sequelize.define("bookingtable", {
     type: Sequelize.BOOLEAN,
     allowNull: true,
     defaultValue: false,
-  },
+  }
 });
 
 module.exports = BookingTable;
