@@ -33,7 +33,7 @@ class ResortDAL {
 
   insertResortDetails = (req, res) => {
     console.log(req.body);
-    return ResortTable.crete(
+    return Resortable.create(
       {
         id: "RST-" + utils.createSHA1("RESORT" + req.body.resort_name),
         ...req.body,
