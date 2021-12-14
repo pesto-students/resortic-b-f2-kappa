@@ -7,7 +7,7 @@ class BookingSchema{
         email: Joi.string()
             .email({ tlds: { allow: ["com"] } })
             .required(),
-        check_in: Joi.date().greater('now').required(),
+        check_in: Joi.date().min('now').required(),
         check_out: Joi.date().min(Joi.ref('check_in')).required(),
         guests: Joi.string().required(),
         status: Joi.any().allow("Reserved", "Booked", "Cancelled", "Completed").required(),
@@ -23,7 +23,7 @@ class BookingSchema{
         mobile: Joi.string().pattern(new RegExp("^[6-9]\\d{9}$")),
         email: Joi.string()
             .email({ tlds: { allow: ["com"] } }),
-        check_in: Joi.date().greater('now'),
+        check_in: Joi.date().min('now'),
         check_out: Joi.date().min(Joi.ref('check_in')),
         guests: Joi.string(),
         status: Joi.any().allow("Reserved", "Booked", "Cancelled", "Completed"),

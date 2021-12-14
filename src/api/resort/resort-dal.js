@@ -1,3 +1,5 @@
+const Sequelize = require("sequelize");
+const database = require("../../../config/database");
 const ResortTable = require("../../Modal/resort_modal");
 const UserTable = require("../../Modal/user_modal");
 const ReviewTable = require("../../Modal/review_modal");
@@ -118,6 +120,21 @@ class ResortDAL {
       .catch((err) => {
         return err;
       });
+  };
+
+  searchResorts = async (req, res) => {
+    var ci = req.query.ci;
+    var co = req.query.co;
+    var city = req.query.city;
+    var rooms = req.query.rooms;
+
+    const data = await database.query(
+      "SELECT  (SELECT SUM(quantity) FROM resortic_schema.roomtables AS rm JOIN resortic_schema.resortroomtables AS rr ON rm.id = rr.roomtableId WHERE resorttableId = r.id ) - SUM(IFNULL(rooms_count,0)) AS availableRooms ,r.id AS id, r.resort_name AS resort_name, r.city, r.starting_price,r.major_aminities FROM resortic_schema.bookingtables AS outbook RIGHT JOIN resortic_schema.resorttables AS r ON outbook.resorttableId = r.id WHERE ((IFNULL(check_in, $1) BETWEEN  $1 AND $2) OR  (IFNULL(check_out, $1) BETWEEN  $1 AND $2)) AND r.city LIKE $3 GROUP BY r.id HAVING availableRooms > $4;",
+      { type: Sequelize.QueryTypes.SELECT, bind: [ci,co,city,rooms] }
+
+    );
+
+    return data;
   };
 }
 

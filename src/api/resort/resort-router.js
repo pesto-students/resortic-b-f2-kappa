@@ -19,4 +19,6 @@ resortRouter.get("/fetchCityByCategory", resortController.fetchCityByCategory);
 
 resortRouter.get("/fetchToTenResort", resortController.fetchTopTenResort);
 
+resortRouter.get("/fetchResortonSearch", resortController.searchResort);
+
 module.exports = resortRouter;
