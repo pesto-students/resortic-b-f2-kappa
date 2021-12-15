@@ -52,7 +52,8 @@ class UserController {
         throw new Error(error);
       }
       return await UserService._updateUser(req, res);
-    } catch (error) {}
+    } catch (error) {
+    res.status(400).json({ success: false, msg: error });}
   };
 
   deleteUser = async (req, res) => {
