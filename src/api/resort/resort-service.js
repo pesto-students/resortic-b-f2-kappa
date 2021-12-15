@@ -54,6 +54,16 @@ class resortService {
       return res.status(404).send({ error });
     }
   };
+
+  _searchResort = async (req, res) => {
+    try {
+      console.log("search resort service");
+      const arrData = await resortDal.searchResorts(req, res);
+      res.status(200).json({ success: true, value: arrData });
+    } catch (error) {
+      return res.status(404).send({ error });
+    }
+  };
 }
 
 module.exports = new resortService();
