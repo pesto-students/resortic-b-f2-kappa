@@ -11,12 +11,10 @@ const BookingTable = sequelize.define("bookingtable", {
   user_id_proof: {
     type: Sequelize.STRING,
     allowNull: false,
-    unique: true,
   },
   mobile: {
     type: Sequelize.STRING,
     allowNull: false,
-    unique: true,
   },
   email: {
     type: Sequelize.STRING,
