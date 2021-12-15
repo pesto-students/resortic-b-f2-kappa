@@ -57,6 +57,7 @@ class resortService {
 
   _searchResort = async (req, res) => {
     try {
+      console.log("search resort service");
       const arrData = await resortDal.searchResorts(req, res);
       res.status(200).json({ success: true, value: arrData });
     } catch (error) {
