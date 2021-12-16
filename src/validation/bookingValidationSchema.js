@@ -1,7 +1,7 @@
 const Joi = require("joi");
 
 var today = new Date();
-today = today.toLocaleDateString().replaceAll("/","-");
+today = (today.getMonth()+1)+'-'+today.getDate()+'-'+today.getFullYear();
 
 class BookingSchema{
     createBook = Joi.object({
