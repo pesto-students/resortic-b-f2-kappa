@@ -1,5 +1,8 @@
 const Joi = require("joi");
 
+var today = new Date();
+today = today.toLocaleDateString().replaceAll("/","-");
+
 class BookingSchema{
     createBook = Joi.object({
         user_id_proof: Joi.string().required(),
@@ -7,7 +10,7 @@ class BookingSchema{
         email: Joi.string()
             .email({ tlds: { allow: ["com"] } })
             .required(),
-        check_in: Joi.date().min('now').required(),
+        check_in: Joi.date().min(today).required(),
         check_out: Joi.date().min(Joi.ref('check_in')).required(),
         guests: Joi.string().required(),
         status: Joi.any().allow("Reserved", "Booked", "Cancelled", "Completed").required(),
@@ -23,7 +26,7 @@ class BookingSchema{
         mobile: Joi.string().pattern(new RegExp("^[6-9]\\d{9}$")),
         email: Joi.string()
             .email({ tlds: { allow: ["com"] } }),
-        check_in: Joi.date().min('now'),
+        check_in: Joi.date().min(today),
         check_out: Joi.date().min(Joi.ref('check_in')),
         guests: Joi.string(),
         status: Joi.any().allow("Reserved", "Booked", "Cancelled", "Completed"),
