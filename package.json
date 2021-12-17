@@ -23,7 +23,7 @@
     "prepush": "npm test",
     "pretest": "npm run lint",
     "production": "cross-env NODE_ENV=production node main.js",
-    "test": "npm run create-sqlite-db; cross-env NODE_ENV=testing jest --coverage; npm run drop-sqlite-db",
+    "test": "mocha",
     "test-ci": "jest --coverage --forceExit"
   },
   "jest": {
@@ -55,12 +55,14 @@
     "sequelize": "^6.0.0"
   },
   "devDependencies": {
+    "chai": "^4.3.4",
     "cross-env": "^5.1.4",
     "eslint": "^4.19.1",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.11.0",
     "husky": "^0.14.3",
     "jest": "^24.8.0",
+    "mocha": "^9.1.3",
     "nodemon": "^1.17.3",
     "shx": "^0.2.2",
     "supertest": "^3.0.0"

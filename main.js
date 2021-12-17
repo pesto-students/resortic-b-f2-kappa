@@ -1,7 +1,7 @@
 /**
  * third party libraries
  */
-require("newrelic");
+// require("newrelic");
 const bodyParser = require("body-parser");
 const express = require("express");
 const helmet = require("helmet");
