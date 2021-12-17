@@ -9,7 +9,7 @@ class UserValidationSchema {
     email: Joi.string()
       .email({ tlds: { allow: ["com"] } })
       .required(),
-      address : Joi.string().alphanum()
+    address: Joi.string().alphanum(),
   });
 
   mobileLoginSchema = Joi.object({
