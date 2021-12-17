@@ -7,8 +7,6 @@ class PaymentDAL {
     const { body } = req;
     console.log("ser", body);
     body.id = "PAY-" + createSHA1(body.payment_id);
-    // body.createdAt = getCurrentTimestamp();
-    // body.updatedAt = getCurrentTimestamp();
     body.payment_date = getCurrentTimestamp();
     console.log("ser", body);
     return await PaymentTable.create(body)

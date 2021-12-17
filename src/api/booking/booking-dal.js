@@ -7,15 +7,17 @@ const database = require("../../../config/database");
 class BookingDAL {
   createBooking = async (req, res) => {
     var body = req.body;
+    var mail = body.mail
     body.id = "BOK-"+ utils.createSHA1("BOOK-" + req.body.mobile + new Date().toISOString());
     // body.check_in = utils.getCurrentTimestamp(req.body.check_in);
     // body.check_out = utils.getCurrentTimestamp(req.body.check_out);
-
+    mail.id = body.id;
+    delete body.mail;
     return await Booking.create({
       ...body
     })
       .then((data) => {
-        mailer.sendMail(data);
+        mailer.sendMail(mail);
         return { msg: "Booking Successful.", data: data };
       })
       .catch((err) => {
@@ -43,7 +45,7 @@ class BookingDAL {
     //   { type: Sequelize.QueryTypes.SELECT, bind: [sUserId] }
     // );
     const data = await database.query(
-      "SELECT p.paid_amount, b.id, b.check_in,b.check_out,b.guests,b.rooms_count,b.usertableId,r.resort_name,r.address, (SELECT AVG(rating) FROM reviewtables WHERE resorttableId = r.id) as rating FROM paymenttables as p JOIN bookingtables as b ON p.bookingtableId = b.id JOIN resorttables as r ON b.resorttableId = r.id WHERE b.usertableId=$1 AND b.check_in >= curdate() AND b.is_deleted=FALSE AND b.status <> 'Cancelled'",
+      "SELECT p.paid_amount, b.id, b.check_in,b.check_out,b.guests,b.rooms_count,b.usertableId,r.resort_name,r.address,b.status,(SELECT AVG(rating) FROM reviewtables WHERE resorttableId = r.id) as rating FROM paymenttables as p JOIN bookingtables as b ON p.bookingtableId = b.id JOIN resorttables as r ON b.resorttableId = r.id WHERE b.usertableId=$1 AND b.check_in >= curdate() AND b.is_deleted=FALSE AND b.status <> 'Cancelled'",
       { type: Sequelize.QueryTypes.SELECT, bind: [sUserId] }
     );
     return data;
@@ -58,7 +60,7 @@ class BookingDAL {
     //   { type: Sequelize.QueryTypes.SELECT, bind: [sUserId] }
     // );
     const data = await database.query(
-      "SELECT p.paid_amount, b.id, b.check_in,b.check_out,b.guests,b.rooms_count,b.usertableId,r.resort_name,r.address, (SELECT AVG(rating) FROM reviewtables WHERE resorttableId = r.id) as rating FROM paymenttables as p JOIN bookingtables as b ON p.bookingtableId = b.id JOIN resorttables as r ON b.resorttableId = r.id WHERE b.usertableId=$1 AND b.check_in < curdate() AND b.is_deleted=FALSE",
+      "SELECT p.paid_amount, b.id, b.check_in,b.check_out,b.guests,b.rooms_count,b.usertableId,r.resort_name,r.address, b.status,(SELECT AVG(rating) FROM reviewtables WHERE resorttableId = r.id) as rating FROM paymenttables as p JOIN bookingtables as b ON p.bookingtableId = b.id JOIN resorttables as r ON b.resorttableId = r.id WHERE b.usertableId=$1 AND (b.check_in < curdate() or b.status = 'Cancelled')  AND b.is_deleted=FALSE",
       { type: Sequelize.QueryTypes.SELECT, bind: [sUserId] }
     );
     return data;
@@ -87,7 +89,7 @@ class BookingDAL {
   deleteBooking = async (req, res) => {
     return await Booking.update(
       {
-        is_deleted:true
+        status : "Cancelled"
       },
       {
         where: {
