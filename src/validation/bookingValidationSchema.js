@@ -20,7 +20,7 @@ class BookingSchema {
     is_checked_in: Joi.boolean(),
     is_checked_out: Joi.boolean(),
     resorttableId: Joi.string().required(),
-    usertableId: Joi.string().required(),
+    usertableId: Joi.string(),
     roomtableId: Joi.string().required(),
     rooms_count: Joi.number().min(1).required(),
     mail: Joi.object({
