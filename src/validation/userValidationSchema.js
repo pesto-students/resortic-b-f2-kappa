@@ -2,7 +2,7 @@ const Joi = require("joi");
 
 class UserValidationSchema {
   userSchema = Joi.object({
-     id: Joi.string().min(3).required(),
+    id: Joi.string().min(3).required(),
     first_name: Joi.string().alphanum(),
     last_name: Joi.string().alphanum(),
     mobile: Joi.string().pattern(new RegExp("^[6-9]\\d{9}$")).required(),
