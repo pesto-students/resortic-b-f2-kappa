@@ -37,7 +37,7 @@ class MailDal {
     sandGridMail
       .send({
         to: to,
-        from: "sahu.sachikanta7@gmail.com",
+        from: "resortic@quickat.work",
         subject: subject,
         html: htmlTemplate,
       }, function(error,info){
