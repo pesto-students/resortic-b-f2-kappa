@@ -48,6 +48,14 @@ class ResortController {
       res.status(400).json({ success: false, msg: error });
     }
   };
+
+  searchResort = async (req, res) => {
+    try {
+      return await resortService._searchResort(req, res);
+    } catch (error) {
+      res.status(400).json({ success: false, msg: error });
+    }
+  };
 }
 
 module.exports = new ResortController();
